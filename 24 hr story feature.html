@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Stories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Feed Page -->
+  <div class="feed" id="feed">
+    <header class="feed__header">
+      <span class="feed__logo">stories<span class="accent">.</span></span>
+      <div class="feed__icons">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <button class="icon-btn notif" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Story Tray -->
+    <div class="tray-scroll">
+      <div class="tray" id="storyTray">
+        <!-- Add bubble -->
+        <label class="bubble add-bubble" id="addBubble" title="Add Story">
+          <div class="bubble__ring add-ring">
+            <div class="bubble__face">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <span class="bubble__name">Add</span>
+          <input type="file" id="fileInput" accept="image/*" class="file-hidden" multiple/>
+        </label>
+        <!-- Story bubbles rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Placeholder feed posts -->
+    <div class="posts">
+      <div class="post">
+        <div class="post__bar">
+          <div class="post__avi" style="background: linear-gradient(135deg,#f093fb,#f5576c)"></div>
+          <div class="post__info"><b>luna_vis</b><span>3 hours ago</span></div>
+          <svg class="post__more" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </div>
+        <div class="post__img" style="background:linear-gradient(160deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);height:300px">
+          <div class="post__img-placeholder">🌌</div>
+        </div>
+        <div class="post__actions">
+          <span>❤️ 284 likes</span><span>💬 19 comments</span>
+        </div>
+        <p class="post__caption"><b>luna_vis</b> The night sky never gets old ✨</p>
+      </div>
+
+      <div class="post">
+        <div class="post__bar">
+          <div class="post__avi" style="background: linear-gradient(135deg,#43e97b,#38f9d7)"></div>
+          <div class="post__info"><b>wave_rider</b><span>5 hours ago</span></div>
+          <svg class="post__more" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </div>
+        <div class="post__img" style="background:linear-gradient(160deg,#0d2137 0%,#114b5f 60%,#1a936f 100%);height:260px">
+          <div class="post__img-placeholder">🌊</div>
+        </div>
+        <div class="post__actions">
+          <span>❤️ 517 likes</span><span>💬 43 comments</span>
+        </div>
+        <p class="post__caption"><b>wave_rider</b> Chasing endless waves 🏄</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Viewer Overlay -->
+  <div class="viewer" id="viewer" aria-hidden="true">
+    <!-- Progress bars -->
+    <div class="v-bars" id="vBars"></div>
+
+    <!-- Header -->
+    <div class="v-head">
+      <div class="v-user">
+        <div class="v-avi" id="vAvi"></div>
+        <div class="v-meta">
+          <span class="v-name" id="vName"></span>
+          <span class="v-time" id="vTime"></span>
+        </div>
+      </div>
+      <button class="v-close" id="vClose" aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Media -->
+    <div class="v-media" id="vMedia"></div>
+
+    <!-- Caption -->
+    <div class="v-caption" id="vCaption"></div>
+
+    <!-- Tap zones -->
+    <div class="tap tap-l" id="tapL"></div>
+    <div class="tap tap-r" id="tapR"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
